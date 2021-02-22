@@ -1,6 +1,5 @@
 import { Persistable, PersistableData } from './IPersistable';
 import { v4 } from "uuid";
-const argon2 = require('argon2');
 
 interface UserPersistableData extends PersistableData {
     id: string
