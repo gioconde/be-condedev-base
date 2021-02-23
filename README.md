@@ -1,5 +1,7 @@
 # be-condedev
-Trying to implement a SOLID backend with Node.js and TypeScript.:coffee:
+Trying to implement a SOLID backend with Node.js and TypeScript. :coffee:
+---
+---
 ## API
 - [x] API Interface
 - [x] express Implementation
