@@ -6,8 +6,7 @@ export const authMiddleware = async (req, res, next): Promise<Response> => {
     const token = req.headers.authorization.replace('Bearer ', '');
     try {
         const decoded = await promisify(jwt.verify)(token, process.env.SECRET)
-        //IMPLEMENTAR DECODED
-
+        req.userId = decoded.userId
         next()
     } catch (err) {
         switch (err.name) {
