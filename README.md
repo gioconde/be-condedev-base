@@ -1,8 +1,10 @@
 # be-condedev
-## CRUD
-- [x] GFM task list 1
+## CRUD 
+~~~
 - [x] Create User
 - [ ] Read User
 - [ ] Update User
 - [ ] Delete User
+~~~
 ## Auth
+
