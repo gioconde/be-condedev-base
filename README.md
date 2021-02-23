@@ -12,6 +12,12 @@ Trying to implement a SOLID backend with Node.js and TypeScript. :coffee:
 - [x] MongoDB Implementation
 - [x] MongoDB Singleton
 ---
+## Entity
+- [x] Persistable Interface
+- [x] Id uuid
+- [x] argon hash
+- [x] User
+---
 ## CRUD 
 - [x] Create User
 - [ ] Read User
@@ -19,10 +25,12 @@ Trying to implement a SOLID backend with Node.js and TypeScript. :coffee:
 - [ ] Delete User
 ---
 ## Endpoint Auth
-- [ ] Login
+- [ ] SignIn
+- [ ] SignUp
 - [ ] Token Gen
 - [ ] Middleware
 - [ ] Token Validation
 - [ ] Token Refresh
 - [ ] Blacklist
+- [ ] SignOut
 
