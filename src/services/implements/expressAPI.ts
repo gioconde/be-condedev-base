@@ -12,7 +12,7 @@ export class expressAPI implements IAPI {
     routes(routes: IRoute[]) {
         const router = Router()
         const routeFactory = routes.map(route => {
-            return router[route.method](route.path, route.middleware, route.handle)
+            return router[route.method](route.path, route.middleware?route.middleware:route.handle, route.middleware?route.handle:()=>{})
         })
         this.app.use(routeFactory)
     }

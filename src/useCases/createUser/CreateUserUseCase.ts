@@ -12,6 +12,6 @@ export class CreateUserUseCase {
         if (userExists) throw new Error("Usuário já existe.")
         const password = await argon2.hash(data.password);        
         const user = new User({...data,password});
-        await this.usersRepository.save(user);
+        return await this.usersRepository.save(user);
     }
 }

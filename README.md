@@ -20,9 +20,10 @@ Trying to implement a SOLID backend with Node.js and TypeScript. :coffee:
 ---
 ## CRUD 
 - [x] Create User
-- [ ] Read User
-- [ ] Update User
-- [ ] Delete User
+- [x] Read User
+- [x] Update User
+- [x] Delete User
+- [x] Search User
 ---
 ## Endpoint Auth
 - [ ] SignIn
@@ -33,4 +34,3 @@ Trying to implement a SOLID backend with Node.js and TypeScript. :coffee:
 - [ ] Token Refresh
 - [ ] Blacklist
 - [ ] SignOut
-
