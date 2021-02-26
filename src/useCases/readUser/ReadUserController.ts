@@ -5,7 +5,7 @@ export class ReadUserController {
         private readUserUseCase: ReadUserUseCase,
     ) { }
     async handle(req,res): Promise<Response> {
-        const { id } = req.body;
+        const { id } = req.params;
         try {
             const user = await this.readUserUseCase.execute({ id });
             return res.status(200).json({status:"success",user});

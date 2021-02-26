@@ -3,37 +3,42 @@ import { readUserController } from "./useCases/readUser"
 import { updateUserController } from "./useCases/updateUser"
 import { deleteUserController } from "./useCases/deleteUser"
 import { searchUserController } from "./useCases/searchUser"
-import { authMiddleware } from "./helpers/AuthMiddleware"
+import { signInController } from "./useCases/signIn"
+import { authMiddleware } from "./helpers/"
 const routes = [
-    /* {
+     {
         method: "post",
-        path: "/singin",
-        middleware: (req, res, next) => authMiddleware(req, res, next),
-        handle: (req, res) => createUserController.handle(req, res)
-    }, */
+        path: "/signin",        
+        handle: (req, res) => signInController.handle(req, res)
+    }, 
     {
         method: "post",
-        path: "/users/create",
+        path: "/users",
+        middleware: (req, res, next) => authMiddleware.handle(req, res, next),
         handle: (req, res) => createUserController.handle(req, res)
     },
     {
-        method: "post",
-        path: "/users/update",
+        method: "put",
+        path: "/users/:id",
+        middleware: (req, res, next) => authMiddleware.handle(req, res, next),
         handle: (req, res) => updateUserController.handle(req, res)
     },
     {
         method: "get",
-        path: "/users/read",
+        path: "/users/:id",
+        middleware: (req, res, next) => authMiddleware.handle(req, res, next),
         handle: (req, res) => readUserController.handle(req, res)
     },
     {
         method: "delete",
-        path: "/users/delete",
+        path: "/users/:id",
+        middleware: (req, res, next) => authMiddleware.handle(req, res, next),
         handle: (req, res) => deleteUserController.handle(req, res)
     },
     {
         method: "get",
-        path: "/users/search",
+        path: "/users",
+        middleware: (req, res, next) => authMiddleware.handle(req, res, next),
         handle: (req, res) => searchUserController.handle(req, res)
     }
 ]

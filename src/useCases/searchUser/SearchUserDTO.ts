@@ -1,4 +1,3 @@
 export interface ISearchUserRequestDTO{
-    name?:string;
-    email?:string;
+    data:object
 }

@@ -17,20 +17,24 @@ Trying to implement a SOLID backend with Node.js and TypeScript. :coffee:
 - [x] Id uuid
 - [x] argon hash
 - [x] User
+- [x] RefreshToken
 ---
-## CRUD 
+## UseCases 
 - [x] Create User
 - [x] Read User
 - [x] Update User
 - [x] Delete User
 - [x] Search User
+- [x] SignIn
+- [ ] SignUp
+- [ ] SignOut
+- [ ] Refresh Token
+- [ ] Revoke Token
 ---
 ## Endpoint Auth
-- [ ] SignIn
-- [ ] SignUp
-- [ ] Token Gen
-- [ ] Middleware
-- [ ] Token Validation
+- [x] Token Gen
+- [x] Middleware
+- [x] Token Validation
 - [ ] Token Refresh
 - [ ] Blacklist
-- [ ] SignOut
+---

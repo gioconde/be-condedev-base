@@ -5,7 +5,7 @@ export class DeleteUserController {
         private deleteUserUseCase: DeleteUserUseCase,
     ) { }
     async handle(req,res): Promise<Response> {
-        const { id} = req.body;
+        const { id} = req.params;
         try {
             const count = await this.deleteUserUseCase.execute({ id });
             return res.status(200).json({status:"success",count});

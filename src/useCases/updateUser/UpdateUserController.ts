@@ -5,7 +5,8 @@ export class UpdateUserController {
         private updateUserUseCase: UpdateUserUseCase,
     ) { }
     async handle(req,res): Promise<Response> {
-        const { id, name ,email,password } = req.body;
+        const {id} = req.params
+        const { name ,email,password } = req.body;
         try {
             const count = await this.updateUserUseCase.execute({ id, name ,email,password });
             return res.status(200).json({status:"success",count});

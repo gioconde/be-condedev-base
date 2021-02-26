@@ -5,9 +5,9 @@ export class SearchUserController {
         private searchUserUseCase: SearchUserUseCase,
     ) { }
     async handle(req,res): Promise<Response> {
-        const { name ,email } = req.body;
+        const data = req.query;
         try {
-            const users = await this.searchUserUseCase.execute({ name ,email });
+            const users = await this.searchUserUseCase.execute(data);
             return res.status(200).json({status:"success",users});
         } catch (err) {
             return res.status(400).json({
