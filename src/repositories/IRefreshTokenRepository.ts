@@ -4,4 +4,5 @@ export interface IRefreshTokenRepository{
     findByToken(token:string): Promise<RefreshToken>;    
     findById(id:string): Promise<RefreshToken[]>;    
     save(refreshToken:RefreshToken): Promise<boolean>;
+    update(refreshToken:RefreshToken): Promise<number>;
 }

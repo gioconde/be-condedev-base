@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 export class AuthMiddleware {
     constructor(
         private refreshTokenRepository: IRefreshTokenRepository,
+        private auth,
     ) { }
     async handle(req, res, next): Promise<Response> {
         if (!req.headers.authorization) return res.status(400).json({ message: "Necessita token de acesso!" });
@@ -14,9 +15,8 @@ export class AuthMiddleware {
             const { userId } = decoded
             req.user = {id:userId}
             const refreshTokens = await this.refreshTokenRepository.findById(userId);
-            req.user.ownsToken = token => !!refreshTokens.find(x => x.token === token);
-            
-            next()
+            req.user.ownsToken = token => !!refreshTokens.find(x => x.token === token);     
+            next()          
         } catch (err) {
             switch (err.name) {
                 case "TokenExpiredError":
@@ -24,6 +24,6 @@ export class AuthMiddleware {
                 default:
                     return res.status(498).json({ message: "Token inválido!" });
             }
-        }
+        }     
     }
 }

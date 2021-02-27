@@ -7,21 +7,21 @@ export class MongoDbUsersRepository implements IUsersRepository{
         const database = await MongoDbSingleton.getInstance()
         const collection = database.collection("users");
         const query =JSON.parse(JSON.stringify(params));
-        const result= await collection.find(query);
+        const result= await collection.find(query,{projection:{_id:0}});
         return result.toArray();
     }    
     async findByEmail(email:string):Promise<User>{
         const database = await MongoDbSingleton.getInstance()
         const collection = database.collection("users");
         const query = { email };
-        const user:User = await collection.findOne(query);
+        const user:User = await collection.findOne(query,{projection:{_id:0}});
         return user;
     }    
     async findById(id:string):Promise<User>{
         const database = await MongoDbSingleton.getInstance()
         const collection = database.collection("users");
         const query = { id };
-        const user:User = await collection.findOne(query);
+        const user:User = await collection.findOne(query,{projection:{_id:0}});
         return user;
     }
     async save(user:User):Promise<boolean>{

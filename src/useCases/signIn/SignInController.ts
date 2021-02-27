@@ -14,7 +14,7 @@ export class SignInController {
                 expires: result.refreshToken.expires
             };
             res.cookie('refreshToken', result.refreshToken.token, cookieOptions);
-            return res.status(200).json({status:"success",token:result.token});
+            return res.status(200).json({status:"success",token:result.jwtToken});
         } catch (err) {
             return res.status(err.code).json({
                 message: err.message || "Erro inesperado."

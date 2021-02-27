@@ -4,8 +4,14 @@ import { updateUserController } from "./useCases/updateUser"
 import { deleteUserController } from "./useCases/deleteUser"
 import { searchUserController } from "./useCases/searchUser"
 import { signInController } from "./useCases/signIn"
+import { refreshTokenController } from "./useCases/refreshToken"
 import { authMiddleware } from "./helpers/"
 const routes = [
+    {
+        method: "post",
+        path: "/refresh-token",        
+        handle: (req, res) => refreshTokenController.handle(req, res)
+    }, 
      {
         method: "post",
         path: "/signin",        
@@ -14,7 +20,6 @@ const routes = [
     {
         method: "post",
         path: "/users",
-        middleware: (req, res, next) => authMiddleware.handle(req, res, next),
         handle: (req, res) => createUserController.handle(req, res)
     },
     {
